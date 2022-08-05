@@ -24,7 +24,7 @@ public class BodegaController {
 	}
 	
 	@GetMapping("/asignar")
-	public @ResponseBody void asignarAlumnos() {
+	public @ResponseBody void asignarProductos() {
 		service.asignarProductos();
 	}
 }

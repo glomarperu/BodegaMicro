@@ -11,6 +11,6 @@ import com.idat.bodega.dto.ProductoDTO;
 public interface OpenFeignClient {
 	
 	@GetMapping("/api/v1/producto/listar")
-	public List<ProductoDTO> listadoAlumnosSeleccionados();
+	public List<ProductoDTO> listadoProductosSelec();
 
 }

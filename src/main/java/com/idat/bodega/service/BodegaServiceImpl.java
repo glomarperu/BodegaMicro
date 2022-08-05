@@ -18,10 +18,10 @@ import com.idat.bodega.repository.BodegaRepository;
 public class BodegaServiceImpl implements BodegaService {
 
 	@Autowired
-	private BodegaRepository repositoryAula;
+	private BodegaRepository repositoryBodega;
 	
 	@Autowired
-	private ProductoBodegaRepository repositoryAlumnoAula;
+	private ProductoBodegaRepository repositoryProducto;
 	
 	@Autowired
 	private OpenFeignClient feign;
@@ -29,13 +29,13 @@ public class BodegaServiceImpl implements BodegaService {
 	
 	@Override
 	public void guardarBodega(Bodega bodega) {
-		repositoryAula.save(bodega);
+		repositoryBodega.save(bodega);
 	}
 	
 	@Override
 	public void asignarProductos() {
 	
-		List<ProductoDTO> listado = feign.listadoAlumnosSeleccionados();
+		List<ProductoDTO> listado = feign.listadoProductosSelec();
 		BodegaDetalle detalle = new BodegaDetalle();
 		ProductoFK fk = new ProductoFK();
 		
@@ -45,7 +45,7 @@ public class BodegaServiceImpl implements BodegaService {
 			fk.setIdBodega(1);
 			
 			detalle.setFk(fk);
-			repositoryAlumnoAula.save(detalle);
+			repositoryProducto.save(detalle);
 		}
 		
 	}
