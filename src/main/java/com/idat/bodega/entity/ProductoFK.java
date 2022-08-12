@@ -13,8 +13,9 @@ public class ProductoFK implements Serializable {
 	 */
 	private static final long serialVersionUID = 4417214286334278899L;
 	
-	@Column(name="id_alumno", nullable = false, unique = true)
-	private  Integer idProducto;
+	@Column(name="id_producto", nullable = false, unique = true)
+	private Integer idProducto;
+	
 	@Column(name = "id_bodega", nullable = false,  unique = true)
 	private Integer idBodega;
 	

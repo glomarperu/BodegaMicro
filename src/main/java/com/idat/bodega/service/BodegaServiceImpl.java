@@ -36,14 +36,14 @@ public class BodegaServiceImpl implements BodegaService {
 	public void asignarProductos() {
 	
 		List<ProductoDTO> listado = feign.listadoProductosSelec();
-		BodegaDetalle detalle = new BodegaDetalle();
-		ProductoFK fk = new ProductoFK();
+		BodegaDetalle detalle = null;
+		ProductoFK fk = null;
 		
 		for(ProductoDTO productoDTO : listado) {
+			detalle = new BodegaDetalle(); 
 			fk = new ProductoFK();
 			fk.setIdProducto(productoDTO.getIdProducto());
-			fk.setIdBodega(1);
-			
+			fk.setIdBodega(1);			
 			detalle.setFk(fk);
 			repositoryProducto.save(detalle);
 		}
